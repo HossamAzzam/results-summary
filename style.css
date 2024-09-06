@@ -33,9 +33,9 @@ body{
 .container{
     display: flex;
     margin: 10rem auto;
-    height: 55vh;
-    width: 40vw;
     background-color: var(--white);
+    height: 63vh;
+    width: 40vw;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -47,6 +47,7 @@ body{
     width: 50%;
 }
 .result{
+    min-height: 100%;
     background-image: linear-gradient(var(--light-slate-blue),var(--light-royal-blue));
     border-radius: 30px;
     -webkit-border-radius: 30px;
@@ -54,9 +55,13 @@ body{
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
     justify-content: space-around !important;
-    padding: 0.5rem;
+    padding: ;
     color: var(--white);
+    
 }
+/* .result > *{
+    margin-bottom: 3rem;
+} */
 .result > h3{
     /* margin-top: -0.5rem; */
     color: var(--light-lavender);
@@ -65,8 +70,8 @@ body{
 
 .result .result-pop{
     background-image: linear-gradient(var(--violet-blue),var(--persian-blue));
-    width: 170px;
-    height: 170px;
+    min-width: 170px;
+    min-height: 170px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -85,7 +90,6 @@ body{
 .result .message{
     width: calc(100% - 15%);
     text-align: center;
-    margin-top: -2rem;
 }
 .message h2{
     margin-bottom: 0.6rem;
@@ -102,6 +106,7 @@ body{
     -o-border-radius: 0 30px 30px 0;
     justify-content: space-around !important;
     align-items: start !important;
+    padding: 1rem;
 }
 .summary > *{
     margin-left: 2rem;
@@ -110,7 +115,7 @@ body{
     font-weight: 700;
 }
 .summary .progress-details{
-    width: calc(100% - 20%);
+    min-width: calc(100% - 20%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,12 +124,13 @@ body{
     
 }
 .summary h3, .progress-details{
-    
+    margin-bottom: 1rem;
 }
 .summary .progress-details .progress-element{
-    width: 100%;
+    min-width: 100%;
     display: flex;
     justify-content: space-around;
+    flex-wrap: nowrap;
     font-weight: 700;
     padding: 0.8rem;
     border-radius: 10px;
@@ -151,7 +157,8 @@ body{
 }
 .summary .summary-btn{
     border: none;
-    background-image: linear-gradient(var(--light-slate-blue),var(--light-royal-blue));
+    cursor: pointer;
+    background-color: var(--dark-gray-blue);
     width: 100%;
     padding: 1rem 1rem;
     border-radius: 2rem;
@@ -160,13 +167,53 @@ body{
     -ms-border-radius: 2rem;
     -o-border-radius: 2rem;
     color: var(--white);
-    
     font-weight: 600;
 }
-
+.summary .summary-btn:hover{
+    background-image: linear-gradient(var(--light-slate-blue),var(--light-royal-blue));
+}
 .flex-column{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+@media (max-width: 375px){
+    body{
+        height: 335px;
+    }
+    .container{
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+    }
+    .result, .summary{
+        width: 100%;
+        height: 50%;
+    }
+    .result{
+        border-radius: 0 0 30px 30px;
+        -webkit-border-radius: 0 0 30px 30px;
+        -moz-border-radius: 0 0 30px 30px;
+        -ms-border-radius: 0 0 30px 30px;
+        -o-border-radius: 0 0 30px 30px;
+    }
+    .summary{
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+}
+.summary .summary-btn{
+    margin-bottom: 1rem;
+}
+
 }
